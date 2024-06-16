@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu1oh1nmu83n3"]
+
+[ext_resource type="Texture2D" uid="uid://bag55cv02wxus" path="res://Gfx/2d_chessboard.png" id="1_cmoe3"]
+[ext_resource type="PackedScene" uid="uid://p6k1b4l3nuet" path="res://Cont_1/block_c1.tscn" id="2_egrbt"]
+
+[node name="Cont_1" type="Node2D"]
+
+[node name="Back" type="Node2D" parent="."]
+position = Vector2(128, 255)
+
+[node name="Background" type="Sprite2D" parent="Back"]
+scale = Vector2(0.427, 0.427)
+texture = ExtResource("1_cmoe3")
+
+[node name="Background2" type="Sprite2D" parent="Back"]
+position = Vector2(1025, 0)
+scale = Vector2(0.427, 0.427)
+texture = ExtResource("1_cmoe3")
+
+[node name="Block" parent="." instance=ExtResource("2_egrbt")]

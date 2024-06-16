@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8nyerp5gp8pi"]
+
+[ext_resource type="Script" path="res://Discrete_3/Block_3.gd" id="1_cwbtc"]
+[ext_resource type="Texture2D" uid="uid://bqytieqr8b84h" path="res://icon.svg" id="2_snq5j"]
+
+[node name="Block" type="Node2D"]
+process_mode = 3
+position = Vector2(192, 191)
+script = ExtResource("1_cwbtc")
+
+[node name="Texture" type="Sprite2D" parent="."]
+texture = ExtResource("2_snq5j")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_discrete_movement_timer_timeout"]

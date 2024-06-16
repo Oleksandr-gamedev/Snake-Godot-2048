@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://2kxs5udh3xms"]
+
+[ext_resource type="Texture2D" uid="uid://bag55cv02wxus" path="res://Gfx/2d_chessboard.png" id="1_4ivlx"]
+[ext_resource type="PackedScene" uid="uid://b5ipducxrltfm" path="res://Cont_3/block_c3.tscn" id="2_ml0ec"]
+
+[node name="Cont_3" type="Node2D"]
+
+[node name="Back" type="Node2D" parent="."]
+visible = false
+position = Vector2(128, 255)
+
+[node name="Background" type="Sprite2D" parent="Back"]
+scale = Vector2(0.427, 0.427)
+texture = ExtResource("1_4ivlx")
+
+[node name="Background2" type="Sprite2D" parent="Back"]
+position = Vector2(1025, 0)
+scale = Vector2(0.427, 0.427)
+texture = ExtResource("1_4ivlx")
+
+[node name="Block1" parent="." instance=ExtResource("2_ml0ec")]
+modulate = Color(1, 0.356863, 0.568627, 1)
+
+[node name="Block2" parent="." node_paths=PackedStringArray("parent_block") instance=ExtResource("2_ml0ec")]
+parent_block = NodePath("../Block1")
+
+[node name="Block3" parent="." node_paths=PackedStringArray("parent_block") instance=ExtResource("2_ml0ec")]
+parent_block = NodePath("../Block2")

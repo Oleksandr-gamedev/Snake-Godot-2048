@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://lc0da1s7v4dx"]
+
+[ext_resource type="Texture2D" uid="uid://bag55cv02wxus" path="res://Gfx/2d_chessboard.png" id="1_1fowu"]
+[ext_resource type="Script" path="res://Discrete_2/Block_2.gd" id="2_orv1n"]
+[ext_resource type="Texture2D" uid="uid://bqytieqr8b84h" path="res://icon.svg" id="3_bbdi1"]
+
+[node name="Discrete_2" type="Node2D"]
+
+[node name="Back" type="Node2D" parent="."]
+position = Vector2(128, 255)
+
+[node name="Background" type="Sprite2D" parent="Back"]
+scale = Vector2(0.427, 0.427)
+texture = ExtResource("1_1fowu")
+
+[node name="Background2" type="Sprite2D" parent="Back"]
+position = Vector2(1025, 0)
+scale = Vector2(0.427, 0.427)
+texture = ExtResource("1_1fowu")
+
+[node name="Block" type="Node2D" parent="."]
+process_mode = 3
+position = Vector2(192, 191)
+script = ExtResource("2_orv1n")
+
+[node name="Texture" type="Sprite2D" parent="Block"]
+texture = ExtResource("3_bbdi1")
+
+[node name="DiscreteMovementTimer" type="Timer" parent="Block"]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Block/DiscreteMovementTimer" to="Block" method="_on_discrete_movement_timer_timeout"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://co4ve87n4qhpq"]
+
+[ext_resource type="Texture2D" uid="uid://bag55cv02wxus" path="res://Gfx/2d_chessboard.png" id="1_52xmw"]
+[ext_resource type="PackedScene" uid="uid://b8nyerp5gp8pi" path="res://Discrete_3/block_3.tscn" id="2_56j5i"]
+
+[node name="Discrete_3" type="Node2D"]
+
+[node name="Back" type="Node2D" parent="."]
+position = Vector2(128, 255)
+
+[node name="Background" type="Sprite2D" parent="Back"]
+scale = Vector2(0.427, 0.427)
+texture = ExtResource("1_52xmw")
+
+[node name="Background2" type="Sprite2D" parent="Back"]
+position = Vector2(1025, 0)
+scale = Vector2(0.427, 0.427)
+texture = ExtResource("1_52xmw")
+
+[node name="HeadBlock" parent="." instance=ExtResource("2_56j5i")]
+
+[node name="Texture" parent="HeadBlock" index="0"]
+modulate = Color(1, 1, 0.776471, 1)
+
+[node name="NextBlock" parent="." node_paths=PackedStringArray("parent_block") instance=ExtResource("2_56j5i")]
+position = Vector2(49, 191)
+parent_block = NodePath("../HeadBlock")
+
+[editable path="HeadBlock"]
